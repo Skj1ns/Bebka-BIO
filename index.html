@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bekarys Bio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://abrakadabra.fun/32219-zadnij-fon-dlja-sajta.html') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.85); /* тёмнее */
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+h1, h2 {
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+a {
+    color: #4da6ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #1e90ff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+button:hover {
+    background-color: #63b8ff;
+    transform: scale(1.1);
+}
+
+.page {
+    display: none;
+    animation: fadeIn 0.7s ease;
+}
+
+.active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #fff;
+    padding: 10px;
+}
+
+th {
+    background-color: #1e90ff;
+}
+
+td {
+    background-color: rgba(255,255,255,0.08);
+}
+
+iframe {
+    width: 100%;
+    height: 315px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border: none;
+}
+
+.audio-control {
+    margin-top: 20px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <!-- Навигация -->
+    <div>
+        <button onclick="showPage('bio')">Bio</button>
+        <button onclick="showPage('hobbies')">Hobbies</button>
+        <button onclick="showPage('media')">Media</button>
+        <button onclick="showPage('contacts')">Contacts</button>
+    </div>
+
+    <!-- BIO -->
+    <div id="bio" class="page active">
+        <img class="avatar" src="https://i.pinimg.com/736x/14/91/f9/1491f91c4d072ed0705908c59e1cd8e0.jpg">
+        <h1>Bekarys Amanzhol</h1>
+        <p>Student at IQanat School</p>
+        <p><i class="fab fa-telegram"></i> <a href="https://t.me/skj1ns" target="_blank">@skj1ns</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:amanzhol.bekarys@iqhs.edu.kz">amanzhol.bekarys@iqhs.edu.kz</a></p>
+    </div>
+
+    <!-- HOBBIES -->
+    <div id="hobbies" class="page">
+        <h2>My Hobbies & Interests</h2>
+        <table>
+            <tr>
+                <th>Hobby</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><i class="fas fa-code"></i> Programming</td>
+                <td>Creating websites and learning code</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-gamepad"></i> Gaming</td>
+                <td>Strategy & competitive games</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-music"></i> Music</td>
+                <td>Listening and relaxing</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- MEDIA -->
+    <div id="media" class="page">
+        <h2>Videos I Like</h2>
+
+        <iframe src="https://www.youtube.com/embed/eMhhl1Wq8JA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Hu636CO3kI0" allowfullscreen></iframe>
+    </div>
+
+    <!-- CONTACTS -->
+    <div id="contacts" class="page">
+        <h2>Contacts</h2>
+        <p><i class="fab fa-telegram"></i> <a href="https://t.me/skj1ns" target="_blank">@skj1ns</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:amanzhol.bekarys@iqhs.edu.kz">amanzhol.bekarys@iqhs.edu.kz</a></p>
+
+        <div class="audio-control">
+            <audio id="bgAudio" loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            </audio>
+            <button onclick="toggleAudio()">Play / Pause Music</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+const audio = document.getElementById('bgAudio');
+function toggleAudio() {
+    audio.paused ? audio.play() : audio.pause();
+}
+</script>
+</body>
+</html>
