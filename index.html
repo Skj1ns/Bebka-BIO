@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.85); /* тёмнее */
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
@@ -119,6 +119,7 @@ iframe {
 <body>
 <div class="container">
 
+    <!-- Навигация -->
     <div>
         <button onclick="showPage('bio')">Bio</button>
         <button onclick="showPage('hobbies')">Hobbies</button>
@@ -126,6 +127,7 @@ iframe {
         <button onclick="showPage('contacts')">Contacts</button>
     </div>
 
+    <!-- BIO -->
     <div id="bio" class="page active">
         <img class="avatar" src="https://i.pinimg.com/736x/14/91/f9/1491f91c4d072ed0705908c59e1cd8e0.jpg">
         <h1>Bekarys Amanzhol</h1>
@@ -134,6 +136,7 @@ iframe {
         <p><i class="fas fa-envelope"></i> <a href="mailto:amanzhol.bekarys@iqhs.edu.kz">amanzhol.bekarys@iqhs.edu.kz</a></p>
     </div>
 
+    <!-- HOBBIES -->
     <div id="hobbies" class="page">
         <h2>My Hobbies & Interests</h2>
         <table>
@@ -156,6 +159,7 @@ iframe {
         </table>
     </div>
 
+    <!-- MEDIA -->
     <div id="media" class="page">
         <h2>Videos I Like</h2>
 
@@ -163,15 +167,17 @@ iframe {
         <iframe src="https://www.youtube.com/embed/Hu636CO3kI0" allowfullscreen></iframe>
     </div>
 
+    <!-- CONTACTS -->
     <div id="contacts" class="page">
         <h2>Contacts</h2>
         <p><i class="fab fa-telegram"></i> <a href="https://t.me/skj1ns" target="_blank">@skj1ns</a></p>
         <p><i class="fas fa-envelope"></i> <a href="mailto:amanzhol.bekarys@iqhs.edu.kz">amanzhol.bekarys@iqhs.edu.kz</a></p>
 
         <div class="audio-control">
-            <iframe 
-            src="https://www.youtube.com/embed/LlN8MPS7KQs?autoplay=0&loop=1&playlist=LlN8MPS7KQs">
-            </iframe>
+            <audio id="bgAudio" loop>
+                <source src="https://cdn.pixabay.com/download/audio/2023/03/21/audio_0a8b6e5f3e.mp3" type="audio/mpeg">
+            </audio>
+            <button onclick="toggleAudio()">Play / Pause Music</button>
         </div>
     </div>
 
@@ -182,7 +188,11 @@ function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
 }
+
+const audio = document.getElementById('bgAudio');
+function toggleAudio() {
+    audio.paused ? audio.play() : audio.pause();
+}
 </script>
 </body>
 </html>
-
