@@ -16,21 +16,23 @@
         }
 
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        
+
         body, html {
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 0;
             background: var(--bg);
             color: var(--text);
             font-family: 'Manrope', sans-serif;
             scroll-behavior: smooth;
         }
 
-        /* Навигация */
         nav {
             position: fixed;
-            top: 20px; left: 50%;
+            top: 20px;
+            left: 50%;
             transform: translateX(-50%);
-            width: 95%; max-width: 1000px;
+            width: 95%;
+            max-width: 1000px;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.3);
@@ -43,106 +45,169 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .logo { 
-            font-weight: 800; 
-            font-size: 1.3rem; 
-            color: var(--accent); 
+        .logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--accent);
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .nav-links a {
-            text-decoration: none; color: var(--text);
-            font-size: 0.9rem; font-weight: 600;
-            margin-left: 20px; cursor: pointer; opacity: 0.6; transition: 0.3s;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 20px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: 0.3s;
         }
-        .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-        /* Контейнер страницы */
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
         .page {
             display: none;
             max-width: 1100px;
             margin: 0 auto;
             padding: 140px 20px 80px;
         }
-        .page.active { display: block; animation: fadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Герой */
-        .hero { text-align: center; margin-bottom: 60px; }
-        .hero h1 { font-size: clamp(2.2rem, 8vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; letter-spacing: -1px; }
-        .hero p { font-size: 1.2rem; color: var(--sub-text); max-width: 650px; margin: 0 auto 35px; line-height: 1.6; }
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-        /* Сетка (Bento) */
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .card { 
-            background: var(--card); 
-            padding: 30px; 
-            border-radius: 32px; 
+        .hero h1 {
+            font-size: clamp(2.2rem, 8vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--sub-text);
+            max-width: 650px;
+            margin: 0 auto 35px;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 32px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.01);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(0,0,0,0.03);
+            transition: 0.3s;
         }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
 
-        .card h3 { margin: 0 0 12px 0; font-weight: 800; font-size: 1.4rem; }
-        .card p { color: var(--sub-text); line-height: 1.6; font-size: 0.95rem; margin: 0; }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
 
-        /* Кнопки */
+        .card h3 {
+            margin: 0 0 12px 0;
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: var(--sub-text);
+            line-height: 1.6;
+            margin: 0;
+        }
+
         .btn {
-            background: var(--accent); color: #fff;
-            padding: 18px 40px; border-radius: 20px;
-            font-weight: 700; border: none; cursor: pointer;
-            transition: 0.3s; font-size: 1rem;
-            display: inline-block; text-decoration: none;
+            background: var(--accent);
+            color: #fff;
+            padding: 18px 40px;
+            border-radius: 20px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
         }
-        .btn:hover { transform: scale(1.03); filter: brightness(1.1); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3); }
 
-        /* Медиа блоки */
-        .media-box { 
-            width: 100%; border-radius: 32px; overflow: hidden; 
-            background: #e2e8f0; margin-bottom: 20px; line-height: 0;
-            border: 1px solid rgba(0,0,0,0.05);
+        .btn:hover {
+            transform: scale(1.03);
         }
-        .media-box video, .media-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Форма */
-        .contact-form { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+        .media-box {
+            width: 100%;
+            border-radius: 32px;
+            overflow: hidden;
+            background: #e2e8f0;
+            margin-bottom: 20px;
+            line-height: 0;
+        }
+
+        .media-box video,
+        .media-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
         input, textarea {
-            width: 100%; background: #f8fafc; border: 2px solid #e2e8f0;
-            padding: 16px; border-radius: 18px;
-            font-family: inherit; font-size: 1rem; outline: none; transition: 0.3s;
+            width: 100%;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 16px;
+            border-radius: 18px;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
         }
-        input:focus, textarea:focus { border-color: var(--accent); background: #fff; }
 
-        /* Список в Миссии */
-        .mission-list { list-style: none; padding: 0; margin: 20px 0; }
-        .mission-list li { 
-            display: flex; align-items: center; gap: 12px; 
-            margin-bottom: 12px; font-weight: 500;
+        .mission-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
         }
-        .mission-list li::before { content: '✓'; color: var(--success); font-weight: 800; }
+
+        .mission-list li {
+            margin-bottom: 12px;
+        }
 
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
-            nav { width: 90%; padding: 10px 20px; }
-            .hero h1 { font-size: 2.5rem; }
+            nav { width: 90%; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo" onclick="showPage('home')">
-        <span>E.C.H.O. Safe Path</span>
-    </div>
+    <div class="logo" onclick="showPage('home')">E.C.H.O. Safe Path</div>
     <div class="nav-links">
         <a onclick="showPage('home')">Главная</a>
         <a onclick="showPage('mission')">О проекте</a>
@@ -154,19 +219,19 @@
 <div id="home" class="page active">
     <div class="hero">
         <h1>Твой город.<br>Твоя безопасность.</h1>
-        <p>Интеллектуальная система защиты школьников: строим маршруты по освещенным улицам и соединяем с точками помощи в один клик.</p>
+        <p>Интеллектуальная система защиты школьников: безопасный маршрут домой и в школу.</p>
         <button class="btn" onclick="showPage('mission')">Узнать как это работает</button>
     </div>
+
     <div class="grid">
         <div class="card" style="grid-column: span 2;">
-            <span style="font-size: 2rem;">🏠</span>
             <h3>Сеть Safe Space</h3>
-            <p>Мы объединяем аптеки, магазины и кофейни в единую сеть доверенных точек, где ребенку всегда окажут помощь и вызовут родителей.</p>
+            <p>Точки помощи: магазины, аптеки, кофейни.</p>
         </div>
-        <div class="card" style="background: var(--accent); color: #fff; border: none;">
-            <span style="font-size: 2rem;">⚡</span>
+
+        <div class="card" style="background:#2563eb;color:#fff;">
             <h3>0.05 сек</h3>
-            <p style="color: rgba(255,255,255,0.8);">Мгновенный отклик системы при нажатии кнопки тревоги в мобильном приложении.</p>
+            <p style="color:rgba(255,255,255,.8)">Мгновенный отклик системы.</p>
         </div>
     </div>
 </div>
@@ -174,44 +239,38 @@
 <div id="mission" class="page">
     <div class="grid">
         <div class="card" style="grid-column: span 3;">
-            <h2 style="font-size: 2.2rem; margin: 0 0 20px 0;">Безопасность как стандарт</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 20px;">E.C.H.O. Safe Path — инициатива студентов <b>iQanat High School</b>. Мы создаем цифровую среду, которая защищает подростков по пути в школу и домой.</p>
-            
+            <h2>Безопасность как стандарт</h2>
+            <p>E.C.H.O. Safe Path — инициатива студентов iQanat High School.</p>
+
             <ul class="mission-list">
-                <li><b>Умные маршруты:</b> Алгоритм ИИ выбирает людные и светлые улицы.</li>
-                <li><b>Bluetooth-метки:</b> Трекинг работает даже в зданиях и ТРЦ.</li>
-                <li><b>Спокойствие родителей:</b> Уведомление о прибытии в точку назначения.</li>
+                <li>✓ Умные маршруты</li>
+                <li>✓ Bluetooth-метки</li>
+                <li>✓ Спокойствие родителей</li>
             </ul>
-            
-            <p style="color: var(--accent); font-weight: 800;">Наша цель — ноль инцидентов на пути детей.</p>
-        </div>
-        
-        <div class="card">
-            <h3>Проблема</h3>
-            <p>80% опасных ситуаций со школьниками происходят в неосвещенных зонах или при выборе коротких, но опасных путей.</p>
-        </div>
-        <div class="card">
-            <h3>Решение</h3>
-            <p>Мобильное приложение-навигатор, которое "ведет" ребенка только по проверенным и безопасным участкам.</p>
-        </div>
-        <div class="card">
-            <h3>Результат</h3>
-            <p>Рост уверенности детей и снижение уровня стресса у родителей на 88% по результатам наших опросов.</p>
         </div>
     </div>
 </div>
 
 <div id="media" class="page">
-    <div class="media-box" style="aspect-ratio: 16/9; background: #000;">
-        <video controls poster="1vUmL.jpg">
-            <source src="IMG_9598.MP4" type="video/mp4">
+    <div class="media-box" style="aspect-ratio:16/9; background:#000;">
+        <video controls poster="safe1.jpg">
+            <source src="safe.MP4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
     </div>
+
     <div class="grid">
-        <div class="media-box" style="aspect-ratio: 1/1;"><img src="1vUmL.jpg" alt="Safe Path 1"></div>
-        <div class="media-box" style="aspect-ratio: 1/1;"><img src="8woEd.jpg" alt="Safe Path 2"></div>
-        <div class="media-box" style="aspect-ratio: 1/1;"><img src="UUB0i.jpg" alt="Safe Path 3"></div>
+        <div class="media-box" style="aspect-ratio:1/1;">
+            <img src="safe1.jpg" alt="Safe Path 1">
+        </div>
+
+        <div class="media-box" style="aspect-ratio:1/1;">
+            <img src="safe2.jpg" alt="Safe Path 2">
+        </div>
+
+        <div class="media-box" style="aspect-ratio:1/1;">
+            <img src="safe3.jpg" alt="Safe Path 3">
+        </div>
     </div>
 </div>
 
@@ -219,62 +278,34 @@
     <div class="grid">
         <div class="card" style="grid-column: span 2;">
             <h3>Свяжитесь с нами</h3>
-            <p>Станьте партнером проекта или задайте свой вопрос команде.</p>
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Мы получили ваше сообщение.');">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо!');">
                 <input type="text" placeholder="Ваше имя" required>
                 <input type="email" placeholder="Ваш Email" required>
-                <textarea placeholder="Как мы можем вам помочь?" rows="5" required></textarea>
-                <button type="submit" class="btn">Отправить заявку</button>
+                <textarea rows="5" placeholder="Ваше сообщение" required></textarea>
+                <button type="submit" class="btn">Отправить</button>
             </form>
         </div>
+
         <div class="card">
             <h3>Мы в сети</h3>
-            <p style="margin-bottom: 25px;">Следите за развитием Safe Path в реальном времени.</p>
-            
-            <div style="display: flex; flex-direction: column; gap: 15px;">
-                <a href="https://t.me/IQEchoBot" target="_blank" style="text-decoration: none; color: #0088cc; font-weight: 700; display: flex; align-items: center; gap: 10px;">
-                    <span>🔵</span> Telegram Bot
-                </a>
-                <a href="https://instagram.com/echo_safepath" target="_blank" style="text-decoration: none; color: #e1306c; font-weight: 700; display: flex; align-items: center; gap: 10px;">
-                    <span>📸</span> Instagram
-                </a>
-                <a href="https://wa.me/77021922700" target="_blank" style="text-decoration: none; color: #25d366; font-weight: 700; display: flex; align-items: center; gap: 10px;">
-                    <span>💬</span> WhatsApp
-                </a>
-            </div>
-            
-            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-                <p style="font-size: 0.8rem;">iQanat High School, Бурабай</p>
-                <p style="font-size: 0.8rem; margin-top: 5px;">Проект: E.C.H.O. Team</p>
-            </div>
+            <p>Telegram / Instagram / WhatsApp</p>
         </div>
     </div>
 </div>
 
 <script>
-    function showPage(pageId) {
-        // Убираем активный класс у всех страниц
-        document.querySelectorAll('.page').forEach(p => {
-            p.classList.remove('active');
-        });
-        
-        // Показываем нужную страницу
-        const activePage = document.getElementById(pageId);
-        if(activePage) {
-            activePage.classList.add('active');
-        }
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
 
-        // Прокрутка наверх
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById(pageId).classList.add('active');
 
-        // Обновление активной ссылки в меню (опционально)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.style.opacity = "0.6";
-            if(link.innerText.toLowerCase().includes(pageId === 'home' ? 'главная' : '')) {
-                link.style.opacity = "1";
-            }
-        });
-    }
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
 </script>
 
 </body>
